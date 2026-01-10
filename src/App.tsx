@@ -8,6 +8,9 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import BloodDonation from "./pages/donate/BloodDonation";
+import MedicineDonation from "./pages/donate/MedicineDonation";
+import EquipmentDonation from "./pages/donate/EquipmentDonation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +27,9 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/donate/blood" element={<BloodDonation />} />
+            <Route path="/donate/medicine" element={<MedicineDonation />} />
+            <Route path="/donate/equipment" element={<EquipmentDonation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
