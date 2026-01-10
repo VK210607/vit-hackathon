@@ -41,7 +41,7 @@ const NgoDashboard = ({ profile }: { profile: Profile }) => {
         <p className="text-muted-foreground mb-8">Manage donations and coordinate resource distribution</p>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-2xl">
-          <Card className="elevated-card cursor-pointer group">
+          <Card className="elevated-card cursor-pointer group" onClick={() => navigate('/ngo/applications')}>
             <CardHeader>
               <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                 <FileCheck className="h-6 w-6 text-primary-foreground" />
@@ -54,7 +54,7 @@ const NgoDashboard = ({ profile }: { profile: Profile }) => {
             </CardContent>
           </Card>
 
-          <Card className="elevated-card cursor-pointer group">
+          <Card className="elevated-card cursor-pointer group" onClick={() => navigate('/ngo/requests')}>
             <CardHeader>
               <div className="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                 <ClipboardList className="h-6 w-6 text-accent-foreground" />

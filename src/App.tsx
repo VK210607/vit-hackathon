@@ -11,6 +11,10 @@ import Dashboard from "./pages/Dashboard";
 import BloodDonation from "./pages/donate/BloodDonation";
 import MedicineDonation from "./pages/donate/MedicineDonation";
 import EquipmentDonation from "./pages/donate/EquipmentDonation";
+import DonateSupplies from "./pages/healthcare/DonateSupplies";
+import RequestSupplies from "./pages/healthcare/RequestSupplies";
+import DonationApplications from "./pages/ngo/DonationApplications";
+import SupplyRequests from "./pages/ngo/SupplyRequests";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +34,10 @@ const App = () => (
             <Route path="/donate/blood" element={<BloodDonation />} />
             <Route path="/donate/medicine" element={<MedicineDonation />} />
             <Route path="/donate/equipment" element={<EquipmentDonation />} />
+            <Route path="/healthcare/donate" element={<DonateSupplies />} />
+            <Route path="/healthcare/request" element={<RequestSupplies />} />
+            <Route path="/ngo/applications" element={<DonationApplications />} />
+            <Route path="/ngo/requests" element={<SupplyRequests />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

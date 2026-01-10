@@ -41,7 +41,7 @@ const HealthcareDashboard = ({ profile }: { profile: Profile }) => {
         <p className="text-muted-foreground mb-8">Manage donations and resource requests</p>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-2xl">
-          <Card className="elevated-card cursor-pointer group">
+          <Card className="elevated-card cursor-pointer group" onClick={() => navigate('/healthcare/donate')}>
             <CardHeader>
               <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                 <Package className="h-6 w-6 text-primary-foreground" />
@@ -54,7 +54,7 @@ const HealthcareDashboard = ({ profile }: { profile: Profile }) => {
             </CardContent>
           </Card>
 
-          <Card className="elevated-card cursor-pointer group">
+          <Card className="elevated-card cursor-pointer group" onClick={() => navigate('/healthcare/request')}>
             <CardHeader>
               <div className="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                 <Send className="h-6 w-6 text-accent-foreground" />
