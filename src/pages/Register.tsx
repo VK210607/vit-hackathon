@@ -84,29 +84,32 @@ const Register = () => {
 
     setLoading(true);
 
-    let profileData: Record<string, unknown> = { role };
+    // Build profile data based on role - role is guaranteed to be set here
+    const baseProfile = { role: role as 'individual' | 'healthcare_facility' | 'ngo' };
+    
+    let profileData;
 
     if (role === 'individual') {
       profileData = {
-        ...profileData,
+        ...baseProfile,
         full_name: fullName,
         age: parseInt(age),
         phone_number: phoneNumber,
-        gender,
+        gender: gender as 'male' | 'female' | 'other',
         aadhar,
         location,
       };
     } else if (role === 'healthcare_facility') {
       profileData = {
-        ...profileData,
+        ...baseProfile,
         facility_name: facilityName,
         hfr_id: hfrId,
         contact_number: hfContactNumber,
         location: hfLocation,
       };
-    } else if (role === 'ngo') {
+    } else {
       profileData = {
-        ...profileData,
+        ...baseProfile,
         ngo_name: ngoName,
         ngo_id: ngoId,
         ngo_coordinator: ngoCoordinator,

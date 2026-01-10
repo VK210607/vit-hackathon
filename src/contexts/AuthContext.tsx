@@ -28,7 +28,7 @@ interface AuthContextType {
   session: Session | null;
   profile: Profile | null;
   loading: boolean;
-  signUp: (email: string, password: string, profileData: Partial<Profile>) => Promise<{ error: Error | null }>;
+  signUp: (email: string, password: string, profileData: { role: UserRole } & Partial<Omit<Profile, 'role'>>) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
@@ -101,7 +101,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
-  const signUp = async (email: string, password: string, profileData: Partial<Profile>) => {
+  const signUp = async (email: string, password: string, profileData: { role: UserRole } & Partial<Omit<Profile, 'role'>>) => {
     try {
       const { data, error: signUpError } = await supabase.auth.signUp({
         email,
@@ -116,12 +116,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       if (data.user) {
-        // Create profile
-        const { error: profileError } = await supabase.from('profiles').insert([{
+        // Create profile with required role field
+        const insertData = {
           user_id: data.user.id,
           email,
-          ...profileData,
-        }]);
+          role: profileData.role,
+          full_name: profileData.full_name,
+          age: profileData.age,
+          phone_number: profileData.phone_number,
+          gender: profileData.gender,
+          aadhar: profileData.aadhar,
+          facility_name: profileData.facility_name,
+          hfr_id: profileData.hfr_id,
+          contact_number: profileData.contact_number,
+          ngo_name: profileData.ngo_name,
+          ngo_id: profileData.ngo_id,
+          ngo_coordinator: profileData.ngo_coordinator,
+          location: profileData.location,
+        };
+
+        const { error: profileError } = await supabase.from('profiles').insert([insertData]);
 
         if (profileError) {
           console.error('Profile creation error:', profileError);
