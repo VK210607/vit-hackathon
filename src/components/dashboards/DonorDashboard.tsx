@@ -41,7 +41,7 @@ const DonorDashboard = ({ profile }: { profile: Profile }) => {
         <p className="text-muted-foreground mb-8">Choose how you'd like to make a difference today</p>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <Card className="elevated-card cursor-pointer group">
+          <Card className="elevated-card cursor-pointer group" onClick={() => navigate('/donate/blood')}>
             <CardHeader>
               <div className="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                 <Heart className="h-6 w-6 text-accent-foreground" />
@@ -50,11 +50,11 @@ const DonorDashboard = ({ profile }: { profile: Profile }) => {
               <CardDescription>Check eligibility and register for nearby camps</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full">Start Eligibility Check</Button>
+              <Button className="w-full" onClick={(e) => { e.stopPropagation(); navigate('/donate/blood'); }}>Start Eligibility Check</Button>
             </CardContent>
           </Card>
 
-          <Card className="elevated-card cursor-pointer group">
+          <Card className="elevated-card cursor-pointer group" onClick={() => navigate('/donate/medicine')}>
             <CardHeader>
               <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                 <Pill className="h-6 w-6 text-primary-foreground" />
@@ -63,11 +63,11 @@ const DonorDashboard = ({ profile }: { profile: Profile }) => {
               <CardDescription>Donate unused medicines to those in need</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full" variant="secondary">Donate Medicine</Button>
+              <Button className="w-full" variant="secondary" onClick={(e) => { e.stopPropagation(); navigate('/donate/medicine'); }}>Donate Medicine</Button>
             </CardContent>
           </Card>
 
-          <Card className="elevated-card cursor-pointer group">
+          <Card className="elevated-card cursor-pointer group" onClick={() => navigate('/donate/equipment')}>
             <CardHeader>
               <div className="w-12 h-12 rounded-xl bg-success flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                 <Stethoscope className="h-6 w-6 text-success-foreground" />
@@ -76,7 +76,7 @@ const DonorDashboard = ({ profile }: { profile: Profile }) => {
               <CardDescription>Donate medical devices and equipment</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full" variant="secondary">Donate Equipment</Button>
+              <Button className="w-full" variant="secondary" onClick={(e) => { e.stopPropagation(); navigate('/donate/equipment'); }}>Donate Equipment</Button>
             </CardContent>
           </Card>
         </div>
