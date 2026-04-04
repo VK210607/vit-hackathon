@@ -1,73 +1,45 @@
-# Welcome to your Lovable project
+Thodar - Healthcare Logistics Platform 
+(*Connecting Healthcare, Empowering Lives.*)
 
-## Project info
+Thodar is a centralized web platform designed to streamline the logistics of healthcare donations. It connects Individual Donors, NGOs, and Healthcare Facilities (Hospitals) to ensure that vital resources like blood, medicines, and medical equipment reach those in need efficiently and safely.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+ Project Overview:
+The platform addresses the fragmentation in healthcare supply chains by providing a unified interface for:
+1. Donors to pledge resources with confidence.
+2. NGOs to verify, manage, and transport supplies.
+3. Hospitals to request critical items and track their delivery in real-time.
+It features a "Smart Verification" system (simulating government ID checks) and a robust "Trust Layer" where donations are vetted by NGOs before reaching hospitals, ensuring safety and compliance.
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+ Key Features:
+  *Authentication & Security*:
+   1. Role-Based Access Control: Distinct dashboards for Donors, NGOs, and Hospitals.
+   2. Mock Government Verification:
+    --> Donors: Aadhar ID verification.
+    --> Hospitals: HFR (Health Facility Registry) ID verification.
+    --> NGOs: NGO Unique ID verification.
+   3. Secure Backend: Powered by Supabase Auth and Row Level Security (RLS).
+  
+  *Donor Ecosystem*:
+    1. Smart Eligibility Checks:
+     --> Blood: Auto-calculates eligibility based on last donation date (>90 days) and health conditions.
+     --> Emergency Mode: High-priority alerts for rare blood types during critical shortages.
+    2. Medicine & Equipment: Upload functionality with expiry date checks and condition reporting.
+    3. Gamification: "Trust Scores" and "Impact Summaries" to encourage consistent donations.
+    
+    *NGO Logistics Hub*
+     1. Inbound Management: View and approve pending donations within a 5km radius.
+     2. Outbound Fulfillment: Receive supply requests from hospitals.
+     3. Smart Matching:
+      -->Inventory Match: Dispatch items directly from NGO storage.
+      -->Direct Link: Connect a pending donor directly to a requesting hospital for faster delivery.
+     4. Status Tracking: Real-time updates. 
+    
+    *Hospital Portal*:
+     1. Resource Request: Simple form to request Blood, Medicines, or Equipment.
+     2. Priority System: Flag requests as "Critical," "Medium," or "Low.
+     3. "Live Tracking: Monitor the status of requested supplies.
+     
+    *Tech Stack*
+     Frontend: React.js (Vite)
+     Styling: Tailwind CSS (Glassmorphism UI), Lucide React (Icons)
+     Backend: Supabase (PostgreSQL Database, Authentication, Real-time subscriptions)Routing: React Router DOM
